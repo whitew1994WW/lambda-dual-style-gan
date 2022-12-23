@@ -12,9 +12,10 @@ The loading of the encoder and decoder are done in parallel in order to try and 
 
 The project can be deployed with the following steps:
 
-1. Download the model files locally and store them inside the relevant folder in the DualStyleGAN fork in this repo 
-2. Insert your aws account details into the deployment scripts inside 'deployment-scripts'
-3. Deploy the project by running the bash functions `deployDockerImage` followed by `deployLambdaFunction`. These bash functions can be found in the deployment-scripts folder.
+1. Download the model files locally (see the colab notebook in the above repo link)
+2. Compile the model files to ONNX format using the file DualStyleGAN/convert_to_onnx.py
+3. Insert your aws account details into the deployment scripts inside 'deployment-scripts'
+4. Deploy the project by running the bash functions `deployDockerImage` followed by `deployLambdaFunction`. These bash functions can be found in the deployment-scripts folder.
 
 ## How to test locally with RIE
 
