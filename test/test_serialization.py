@@ -2,19 +2,20 @@
 import base64
 import json
 import io
+import os
 from PIL import Image
 import requests
 
 def main():
     image_file = "test_images/pexels-cottonbro-10319506.jpg"
     output_file = "test_output.jpg"
-    address = "https://style-transfer.plutotech.xyz"
+    test_url = os.getenv("TEST_URL")
 
-    if address is None:
+    if test_url is None:
         print("Could not get lambda url")
         exit(1)
 
-    print(f"LambdaUrl -> {address}")
+    print(f"LambdaUrl -> {test_url}")
 
     with open(image_file, "rb") as f:
         im_bytes = f.read()
@@ -27,7 +28,7 @@ def main():
     }
 
     response = requests.post(
-        address, headers={"Content-Type": "application/json"}, json=payload
+        test_url, headers={"Content-Type": "application/json"}, json=payload
     )
 
     if not response.ok:
