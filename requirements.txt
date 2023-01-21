@@ -1,0 +1,16 @@
+dlib
+opencv-contrib-python
+matplotlib==3.4.2
+#ninja==1.10.2    
+opencv-python
+tqdm==4.61.2
+wget==3.2
+lmdb==1.2.1
+torch==1.12.1
+setuptools==49.6.0
+scikit-image==0.18.1
+torchaudio
+torchvision
+faiss-cpu
+onnxruntime==1.12.1
+Pillow==9.2.0
