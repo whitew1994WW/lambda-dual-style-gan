@@ -14,7 +14,7 @@ Usage:
   deploy.sh <stack_name> <application_name>
 Where:
   stack_name:       Is oneof 'ecr-stack' 'ssl-certificate-stack' 'api-gateway-stack'
-                    'lambda-stack' 'website-stack' 's3-dependencies-bucket'
+                    'lambda-stack'
   application_name: Name of the application
 
 END
@@ -38,7 +38,7 @@ deploy() {
   export AWS_ACCOUNT_ID=$(aws sts get-caller-identity | jq -r '.Account')
 
   case "${stack_name}" in
-    ssl-certificate-stack|ecr-stack|s3-dependencies-bucket)
+    ssl-certificate-stack|ecr-stack)
       echo "Deploying ${stack_name}"
       cdk "${cmd}" "${stack_name}"
       ;;
@@ -50,11 +50,6 @@ deploy() {
     lambda-stack)
       echo "Deploying ${stack_name}"
       export DEPLOY_LAMBDA=true
-      cdk "${cmd}" "${stack_name}"
-      ;;
-    website-stack) 
-      echo "Deploying ${stack_name}"
-      export DEPLOY_WEBSITE=true
       cdk "${cmd}" "${stack_name}"
       ;;
     *)
