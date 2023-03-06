@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+: '
+    Deploys the docker image to ECR (Elastic container registry).
+    This may take a while as the image is pretty big
+'
+
 set -e
 
 AWS_ACCOUNT_ID=""
